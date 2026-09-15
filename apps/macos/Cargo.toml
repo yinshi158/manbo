@@ -1,0 +1,33 @@
+[package]
+name = "manbo-macos"
+description = "macOS 输入法：Input Method Kit 外壳、候选窗口、菜单与偏好设置"
+version = "0.1.3-dev"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+objc2.workspace = true
+objc2-app-kit.workspace = true
+objc2-foundation.workspace = true
+objc2-input-method-kit.workspace = true
+objc2-core-foundation.workspace = true
+manbo-core.workspace = true
+manbo-dictionary.workspace = true
+manbo-learning.workspace = true
+manbo-platform.workspace = true
+manbo-predict.workspace = true
+manbo-sync.workspace = true
+manbo-lm.workspace = true
+manbo-neural = { workspace = true, features = ["metal"] }
+manbo-translate.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+tracing-appender.workspace = true
+jiff.workspace = true
+tracing-subscriber.workspace = true
+dotenvy.workspace = true
+toml_edit.workspace = true
+
+[lints]
+workspace = true

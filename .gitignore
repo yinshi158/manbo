@@ -1,0 +1,12 @@
+/target
+**/*.rs.bk
+.DS_Store
+*.app
+.env
+/logs
+/data
+.playwright-mcp/
+# IDE / AI 助手的本地会话数据，不进仓
+.codebuddy/
+__pycache__/
+*.pyc
