@@ -1,0 +1,3 @@
+/* Name shown in the input source list and the input method menu */
+CFBundleName = "Manbo";
+CFBundleDisplayName = "Manbo";

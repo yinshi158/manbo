@@ -1,0 +1,24 @@
+[package]
+name = "manbo-dict-convert"
+description = "产品数据生成：词库、语言模型、英文词表、语料挖词与 .qj 打包"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+clap.workspace = true
+manbo-core.workspace = true
+manbo-dictionary.workspace = true
+manbo-format.workspace = true
+manbo-lm.workspace = true
+manbo-neural.workspace = true
+manbo-translate.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+[lints]
+workspace = true

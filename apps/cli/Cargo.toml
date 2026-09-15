@@ -1,0 +1,29 @@
+[package]
+name = "manbo-cli"
+description = "命令行测试工具：看候选、逐键计时、回放输入日志评测、整句评测"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+clap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+dotenvy.workspace = true
+manbo-core.workspace = true
+manbo-dictionary.workspace = true
+manbo-learning.workspace = true
+manbo-platform.workspace = true
+manbo-predict.workspace = true
+manbo-sync.workspace = true
+manbo-lm.workspace = true
+manbo-neural.workspace = true
+manbo-translate.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+tracing-appender.workspace = true
+tracing-subscriber.workspace = true
