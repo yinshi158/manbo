@@ -3,6 +3,7 @@
 
 use std::fs;
 use std::path::{Path, PathBuf};
+use std::time::{Duration, SystemTime};
 
 use manbo_sync::{BackendKind, SyncConfig, SyncScope, run_once};
 
@@ -143,6 +144,15 @@ fn config_both_changed_keeps_a_conflict_copy_and_picks_the_newer() {
     )
     .unwrap();
     run_once(&config_for(&cloud), &device_a, SyncScope::Full, 10_000).unwrap();
+    // 云端那份显式推后 60 秒：两次写文件常落在同一毫秒（Linux 上必现），而整文件合并平手时取本地，
+    // 不钉住时间这个用例就成了看运气的。真实设备上两次修改相隔以分钟计，不存在这个问题。
+    let cloud_config = fs::File::options()
+        .write(true)
+        .open(cloud.join("config.toml"))
+        .unwrap();
+    cloud_config
+        .set_modified(SystemTime::now() + Duration::from_secs(60))
+        .unwrap();
     // B 再同步：双方都改过 → 云端的更新，B 的本地修改留冲突副本，不丢
     run_once(&config_for(&cloud), &device_b, SyncScope::Full, 10_000).unwrap();
     assert_eq!(
